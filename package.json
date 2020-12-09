@@ -7,8 +7,11 @@
     "start": "sirv public"
   },
   "devDependencies": {
+    "@iconify-icons/entypo-social": "^1.1.0",
+    "@iconify/svelte": "^1.0.3",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
+    "pnotify": "^5.2.0",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.0.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -17,7 +20,10 @@
     "svelte": "^3.31.0"
   },
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "sirv-cli": "^1.0.0",
+    "svelte-avatar": "^1.0.6",
+    "svelte-routing": "^1.4.2",
     "sveltestrap": "^3.9.6"
   }
 }
