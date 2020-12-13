@@ -21,10 +21,12 @@
     "svelte": "^3.31.0"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.0",
     "bootstrap": "^4.5.3",
     "sirv-cli": "^1.0.0",
     "svelte-avatar": "^1.0.6",
     "svelte-routing": "^1.4.2",
-    "sveltestrap": "^3.9.6"
+    "sveltestrap": "^3.9.6",
+    "sveltik": "^0.1.16"
   }
 }

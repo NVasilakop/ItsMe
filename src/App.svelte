@@ -15,6 +15,7 @@
 	import Studies from "./Studies.svelte";
 	import Interests from "./Interests.svelte";
 	import Footer from "./Footer.svelte";
+	import Contact from "./Contact.svelte";
 	export let url = ""; //This property is necessary declare to avoid ignore the Router
 	export let name;
 
