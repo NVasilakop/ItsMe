@@ -14,34 +14,31 @@
 	import Work from "./Work.svelte";
 	import Studies from "./Studies.svelte";
 	import Interests from "./Interests.svelte";
+	import Footer from "./Footer.svelte";
 	export let url = ""; //This property is necessary declare to avoid ignore the Router
 	export let name;
-	// PNotify.notice({
-	// 	// t: "Non-Blocking Notice",
-	// 	text: "This app is written in Svelte :D !!",
-	// 	addModelessClass: "nonblock",
+
+	// info({
+	// 	title: "About this App",
+	// 	text: "This app is written in Svelte !!",
+	// 	modules: new Map([
+	// 		[
+	// 			Confirm,
+	// 			{
+	// 				confirm: true,
+	// 				buttons: [
+	// 					{
+	// 						text: "Ok",
+	// 						primary: true,
+	// 						click: (notice) => {
+	// 							notice.close();
+	// 						},
+	// 					},
+	// 				],
+	// 			},
+	// 		],
+	// 	]),
 	// });
-	info({
-		title: "About this App",
-		text: "This app is written in Svelte !!",
-		modules: new Map([
-			[
-				Confirm,
-				{
-					confirm: true,
-					buttons: [
-						{
-							text: "Ok",
-							primary: true,
-							click: (notice) => {
-								notice.close();
-							},
-						},
-					],
-				},
-			],
-		]),
-	});
 </script>
 
 <style>
@@ -51,7 +48,12 @@
 		max-width: 240px;
 		margin: 0 auto;
 	}
-
+	.leMargin {
+		margin-bottom: 300px;
+	}
+	.navItem {
+		margin-right: 10px;
+	}
 	/* h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
@@ -88,10 +90,18 @@
 		to learn how to build Svelte apps.
 	</p> -->
 	<Router {url}>
-		<nav>
-			<Link to="/">Home</Link>
-			<Link to="about">About</Link>
-		</nav>
+		<Nav>
+			<div class="navItem">
+				<NavItem class="navItem">
+					<Link to="/">Home</Link>
+				</NavItem>
+			</div>
+			<div class="navItem">
+				<NavItem class="navItem">
+					<Link to="about">About</Link>
+				</NavItem>
+			</div>
+		</Nav>
 		<div>
 			<Route path="about" component={About} />
 			<!--for now the router just support case sensitive,
@@ -106,5 +116,7 @@
 			<Route path="about/interests" component={Interests} />
 			<Route path="about/studies" component={Studies} />
 		</div>
+		<div class="leMargin" />
+		<Footer />
 	</Router>
 </main>

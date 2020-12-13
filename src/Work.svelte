@@ -34,5 +34,5 @@
         But in my free time i learn other programming languages so i can enrich
         my prorgamming pallete
     </p>
-    <a href="https://github.com/NVasilakop">Check My GitHub Repo :D </a>
+    <!-- <a href="https://github.com/NVasilakop">Check My GitHub Repo :D </a> -->
 </main>

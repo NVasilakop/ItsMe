@@ -4,6 +4,9 @@
     export let url = ""; //This property is necessary declare to avoid ignore the Router
     import IconifyIcon from "@iconify/svelte";
     import linkedinWithCircle from "@iconify-icons/entypo-social/linkedin-with-circle";
+    import gitHubWithCircle from "@iconify-icons/entypo-social/github-with-circle";
+    import { Button } from "sveltestrap";
+
     let pageName = "About Me";
 </script>
 
@@ -50,13 +53,13 @@
         Currently i am working as a Full Stack Developer (SQL,.NET,.NET
         Core,Angular 9)
     </p>
-    <IconifyIcon style="font-size:50px" icon={linkedinWithCircle} />
+
     <Router {url}>
-        <nav>
+        <!-- <nav>
             <Link to="studies">Studies</Link>
             <Link to="work">Work</Link>
             <Link to="interests">Interests</Link>
-        </nav>
+        </nav> -->
         <div>
             <!-- <Route path="work" component={Work} /> -->
             <!--for now the router just support case sensitive,
