@@ -25,8 +25,8 @@
 </style>
 
 <main>
-    <h1>{pageName}!</h1>
-    <p>I am an applied Mathematician</p>
+    <h1>{pageName}</h1>
+    <p>I am an applied Mathematician / Software Engineer</p>
     <p>
         I have studied in the
         <a href="http://www.math.uoc.gr">Mathematics & Applied Mathematics</a>
@@ -34,7 +34,8 @@
         Technical Computing
     </p>
     <p>
-        In my free time i used to study a lot about programming languages and in
-        University introduction to C, C++, Python and Matlab helped a lot
+        In my free time i used to study ~and i still am :D ~ a lot about
+        programming languages and in my University years introduction to C, C++,
+        Python and Matlab helped a lot
     </p>
 </main>

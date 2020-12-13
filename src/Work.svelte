@@ -124,9 +124,19 @@
 </style>
 
 <main>
-    <h1>{pageName}!</h1>
+    <h1>{pageName}</h1>
     <ul class="work">
         <!-- Experience -->
+        <li class="green">
+            <div class="where">
+                Mathematics & Applied Mathematics Department of Crete
+            </div>
+            <h3 class="what green">Teaching Assistant</h3>
+            <div class="when">January 2013 - January 2014</div>
+            <p class="description">Teaching Assistant in:</p>
+            <p>Physics I</p>
+            <p>Mathematical Modeling</p>
+        </li>
         <li class="green">
             <div class="where">National Bank Of Greece</div>
             <h3 class="what green">Intership</h3>

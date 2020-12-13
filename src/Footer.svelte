@@ -215,7 +215,7 @@
                             <Link to="about/work">Work</Link>
                         </li>
                         <li>
-                            <Link to="about/interests">Interests</Link>
+                            <Link to="about/interests">Hobbies</Link>
                         </li>
                         <li>
                             <Link to="contact">Contact me</Link>
