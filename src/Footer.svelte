@@ -217,6 +217,9 @@
                         <li>
                             <Link to="about/interests">Interests</Link>
                         </li>
+                        <li>
+                            <Link to="contact">Contact me</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

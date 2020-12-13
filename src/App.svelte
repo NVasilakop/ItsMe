@@ -115,6 +115,7 @@
 			<Route path="about/work" component={Work} />
 			<Route path="about/interests" component={Interests} />
 			<Route path="about/studies" component={Studies} />
+			<Route path="contact" component={Contact} />
 		</div>
 		<div class="leMargin" />
 		<Footer />
