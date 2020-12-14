@@ -21,6 +21,7 @@
     "svelte": "^3.31.0"
   },
   "dependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@sendgrid/mail": "^7.4.0",
     "bootstrap": "^4.5.3",
     "sirv-cli": "^1.0.0",

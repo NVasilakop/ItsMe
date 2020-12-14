@@ -1,5 +1,14 @@
 <script>
-	import { Nav, NavItem, NavLink } from "sveltestrap";
+	import {
+		Nav,
+		NavItem,
+		NavLink,
+		Modal,
+		ModalBody,
+		ModalFooter,
+		ModalHeader,
+		Button,
+	} from "sveltestrap";
 	import { Router, Route, Link } from "svelte-routing";
 	import { alert, defaultModules, defaults, info } from "@pnotify/core";
 	import * as Confirm from "@pnotify/confirm";
@@ -18,28 +27,14 @@
 	import Contact from "./Contact.svelte";
 	export let url = ""; //This property is necessary declare to avoid ignore the Router
 	export let name;
+	export let cookieModal = false;
+	function takeTheCookie() {
+		cookieModal = true;
+	}
 
-	// info({
-	// 	title: "About this App",
-	// 	text: "This app is written in Svelte !!",
-	// 	modules: new Map([
-	// 		[
-	// 			Confirm,
-	// 			{
-	// 				confirm: true,
-	// 				buttons: [
-	// 					{
-	// 						text: "Ok",
-	// 						primary: true,
-	// 						click: (notice) => {
-	// 							notice.close();
-	// 						},
-	// 					},
-	// 				],
-	// 			},
-	// 		],
-	// 	]),
-	// });
+	function closeTheCookie() {
+		cookieModal = false;
+	}
 </script>
 
 <style>
@@ -55,13 +50,49 @@
 	.navItem {
 		margin-right: 10px;
 	}
-	/* h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	} */
 
+	.rotate {
+		animation: rotation 8s infinite linear;
+	}
+
+	.cookieHeader {
+		justify-content: center;
+	}
+
+	@keyframes rotation {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(359deg);
+		}
+	}
+
+	/* @keyframes move{
+		from{
+
+		}
+		to{
+
+		}
+	} */
+	/* #pot{bottom:15%;
+position:absolute;
+-webkit-animation:linear infinite alternate;
+-webkit-animation-name: run;
+-webkit-animation-duration: 5s;
+}      */
+	@keyframes run {
+		0% {
+			left: 0;
+		}
+		50% {
+			left: 100%;
+		}
+		100% {
+			left: 0;
+		}
+	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
@@ -109,7 +140,27 @@
         one workaround colud be add two time the route
         Example.
        <Route path="About" component="{About}" /> 
-    -->
+	-->
+			<img
+				src="assets/cookie.png"
+				alt=""
+				class="rotate"
+				width="50"
+				height="50"
+				on:click={takeTheCookie} />
+			{#if cookieModal}
+				<Modal isOpen={cookieModal}>
+					<ModalHeader>
+						<p class="cookieHeader">Cookie Of The Day</p>
+					</ModalHeader>
+					<ModalBody>You got bamboozled</ModalBody>
+					<ModalFooter>
+						<Button on:click={closeTheCookie}>
+							Come tomorrow for another cookie
+						</Button>
+					</ModalFooter>
+				</Modal>
+			{/if}
 			<Route path="/">
 				<Home />
 			</Route>

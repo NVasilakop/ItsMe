@@ -1,4 +1,32 @@
 <script>
+    import { Sveltik, Form, Field, ErrorMessage } from "sveltik";
+    let initialValues = {
+        email: "",
+        password: "",
+        phone: "",
+    };
+
+    let validate = (values) => {
+        const errors = {};
+        if (!values.email) {
+            errors.email = "Required";
+        }
+        if (!/^\+?(30)?[0-9]{10,}$/i.test(values.phone)) {
+            errors.phone = "Invalid Phone";
+        } else if (
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+            errors.email = "Invalid email address";
+        }
+        return errors;
+    };
+
+    let onSubmit = (values, { setSubmitting }) => {
+        setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+        }, 400);
+    };
 </script>
 
 <style>
@@ -57,58 +85,69 @@
 </style>
 
 <main>
+    <div class="contact-image">
+        <img
+            src="https://image.ibb.co/kUagtU/rocket_contact.png"
+            alt="rocket_contact" />
+    </div>
     <div class="container contact-form">
-        <div class="contact-image">
-            <img
-                src="https://image.ibb.co/kUagtU/rocket_contact.png"
-                alt="rocket_contact" />
-        </div>
-        <form method="post">
-            <h3>Drop Us a Message</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            name="txtName"
-                            class="form-control"
-                            placeholder="Your Name *"
-                            value="" />
+        <!-- <Sveltik {initialValues} {validate} {onSubmit} let:isSubmitting>
+            <Form>
+                <Field type="email" name="email" class="form-control" />
+                <ErrorMessage name="email" as="div" />
+                <Field type="password" name="password" class="form-control" />
+                <ErrorMessage name="password" as="div" />
+                <button type="submit" disabled={isSubmitting}>Submit</button>
+            </Form>
+        </Sveltik> -->
+        <Sveltik {initialValues} {validate} {onSubmit} let:isSubmitting>
+            <Form>
+                <ErrorMessage name="email" as="div" />
+                <h3>Drop Us a Message</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <Field
+                                type="text"
+                                name="txtName"
+                                class="form-control"
+                                placeholder="Your Name *"
+                                value="" />
+                        </div>
+                        <div class="form-group">
+                            <Field
+                                type="email"
+                                name="txtEmail"
+                                class="form-control"
+                                placeholder="Your Email *"
+                                value="" />
+                        </div>
+                        <div class="form-group">
+                            <Field
+                                type="phone"
+                                name="txtPhone"
+                                class="form-control"
+                                placeholder="Your Phone Number *"
+                                value="" />
+                        </div>
+                        <div class="form-group">
+                            <button
+                                type="submit"
+                                disabled={isSubmitting}
+                                class="btnContract">Submit</button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            name="txtEmail"
-                            class="form-control"
-                            placeholder="Your Email *"
-                            value="" />
-                    </div>
-                    <div class="form-group">
-                        <input
-                            type="text"
-                            name="txtPhone"
-                            class="form-control"
-                            placeholder="Your Phone Number *"
-                            value="" />
-                    </div>
-                    <div class="form-group">
-                        <input
-                            type="submit"
-                            name="btnSubmit"
-                            class="btnContact"
-                            value="Send Message" />
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <textarea
+                                name="txtMsg"
+                                class="form-control"
+                                placeholder="Your Message *"
+                                style="width: 100%; height: 150px;" />
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <textarea
-                            name="txtMsg"
-                            class="form-control"
-                            placeholder="Your Message *"
-                            style="width: 100%; height: 150px;" />
-                    </div>
-                </div>
-            </div>
-        </form>
+            </Form>
+        </Sveltik>
     </div>
 </main>
